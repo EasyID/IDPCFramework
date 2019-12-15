@@ -1,0 +1,920 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BZClass</name>
+    </assembly>
+    <members>
+        <member name="T:BZClass.PKBDY">
+            <summary>
+            边电压工位
+            </summary>
+        </member>
+        <member name="M:BZClass.PKBDY.GetProjCode">
+            <summary>
+            获取品种名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.GetMarking(System.String)">
+            <summary>
+            获取Marking列表
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.GetSpec(System.String)">
+            <summary>
+            获取参数规格
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.CheckCondition(System.String,System.String,System.Data.DataTable,System.Boolean,System.String,System.String@,System.String)">
+            <summary>
+            检查条码项目
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="dtSpec">参数规格</param>
+            <param name="chkMK">是否多K值</param>
+            <param name="strBMDM">部门代码("6")</param>
+            <param name="strMessage">异常反馈信息</param>
+            <param name="strMarking">已选标记,使用逗号分隔</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:BZClass.PKBDY.CheckO1OBTime(System.Data.DataTable,System.Data.DataTable,System.String@,System.String@,System.String)">
+            <summary>
+            检查O1OB时间差
+            20171020
+            </summary>
+            <param name="data"></param>
+            <param name="spec"></param>
+            <param name="strspec"></param>
+            <param name="strsj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.CCDpara(System.String)">
+            <summary>
+            CCD根据参数获取对应的列名
+            </summary>
+            <param name="para"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.CheckAGTime(System.String,System.Data.DataTable)">
+            <summary>
+            PK  AGTIME
+            </summary>
+            <param name="agtime"></param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.getBarcodeTime(System.String)">
+            <summary>
+            十年前的条码在十年后出现就会有问题  
+            现在是15年，条码A01512400000
+            10年后25年，条码A01512400001
+            推算出的时间就不准了
+            </summary>
+            <param name="barcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.CheckBarcodeTime(System.String,System.String@,System.Data.DataTable)">
+            <summary>
+            PK BATIME
+            </summary>
+            <param name="barcode">条码</param>
+            <param name="time">条码时间</param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKBDY.SaveCellInfo(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存边电压信息
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strDataValue">边电压</param>
+            <param name="strBDYLSL">边电压下限</param>
+            <param name="strBDYUSL">边电压上限</param>
+            <param name="strOperator">操作员工工号</param>
+            <param name="strProjCode">品种名称</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="T:BZClass.PPGData">
+            <summary>
+            PPG
+            </summary>
+        </member>
+        <member name="M:BZClass.PPGData.GetProjCode">
+            <summary>
+            获取品种名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.GetSpec(System.String)">
+            <summary>
+            获取参数规格
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.IsRetest(System.String)">
+            <summary>
+            检查是否有复测marking,当前的复测Marking有"O3","C"
+            </summary>
+            <param name="strCellName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.CheckCondition(System.String,System.String,System.Data.DataTable,System.Boolean,System.String,System.String@)">
+            <summary>
+            检查条码项目
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="dtSpec">参数规格</param>
+            <param name="chkMK">是否多K值</param>
+            <param name="strBMDM">部门代码("3,4,5")</param>
+            <param name="strMessage">异常反馈信息</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:BZClass.PPGData.CheckO1OBTime(System.Data.DataTable,System.Data.DataTable,System.String@,System.String@,System.String)">
+            <summary>
+            检查O1OB时间差
+            20171020
+            </summary>
+            <param name="data"></param>
+            <param name="spec"></param>
+            <param name="strspec"></param>
+            <param name="strsj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.CCDpara(System.String)">
+            <summary>
+            CCD根据参数获取对应的列名
+            </summary>
+            <param name="para"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.CheckAGTime(System.String,System.Data.DataTable)">
+            <summary>
+            PK  AGTIME
+            </summary>
+            <param name="agtime"></param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.getBarcodeTime(System.String)">
+            <summary>
+            十年前的条码在十年后出现就会有问题  
+            现在是15年，条码A01512400000
+            10年后25年，条码A01512400001
+            推算出的时间就不准了
+            </summary>
+            <param name="barcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.CheckBarcodeTime(System.String,System.String@,System.Data.DataTable)">
+            <summary>
+            PK BATIME
+            </summary>
+            <param name="barcode">条码</param>
+            <param name="time">条码时间</param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PPGData.SaveCellInfo(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存PPG数据
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="strDataValue">ppg</param>        
+            <param name="strPassFlag">合格状态(0,合格;1,大于上限;-1,小于下限)</param>
+            <param name="strOperator">员工工号</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="T:BZClass.BZHis">
+            <summary>
+            包装历史记录类 dcir\ppg\ccd
+            20181218
+            </summary>
+        </member>
+        <member name="M:BZClass.BZHis.InsertO5His(System.String)">
+            <summary>
+            O5历史保存
+            </summary>
+            <param name="strCellName"></param>
+        </member>
+        <member name="M:BZClass.BZHis.InsertPKDCIRHis(System.String)">
+            <summary>
+            直流内阻历史保存
+            20180821
+            </summary>
+            <param name="cellname"></param>
+        </member>
+        <member name="M:BZClass.BZHis.InsertPKPPGHis(System.String)">
+            <summary>
+            PPG历史保存
+            20180822
+            </summary>
+            <param name="cellname"></param>
+        </member>
+        <member name="M:BZClass.BZHis.InsertPKCCDHis(System.String)">
+            <summary>
+            CCD历史保存
+            20180822
+            </summary>
+            <param name="cellname"></param>
+        </member>
+        <member name="T:BZClass.ORACLE">
+            <summary>
+            连接Oracle数据库操作
+            </summary>
+        </member>
+        <member name="T:BZClass.RealWeight">
+            <summary>
+            实际残液量系数类
+            20160504
+            能量和、容量和
+            20170428
+            </summary>
+        </member>
+        <member name="M:BZClass.RealWeight.doCoefficient(System.Data.DataTable)">
+            <summary>
+            实际残液量系数(AE)
+            </summary>
+            <param name="celldata"></param>
+            <returns>异常返回 "-1000"</returns>
+        </member>
+        <member name="M:BZClass.RealWeight.doCoefficient(System.String,System.String)">
+            <summary>
+            实际残液量系数(AE)
+            </summary>
+            <param name="strwei2"></param>
+            <param name="strag"></param>
+            <returns>异常返回 "-1000"</returns>
+        </member>
+        <member name="M:BZClass.RealWeight.doCAPSum(System.String,System.String)">
+            <summary>
+            容量和(SUMCAP)
+            </summary>
+            <param name="strag1"></param>
+            <param name="strag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.RealWeight.doCAPSum(System.Data.DataTable)">
+            <summary>
+            容量和(SUMCAP)
+            </summary>
+            <param name="celldata"></param>
+            <returns>异常返回 "-1000"</returns>
+        </member>
+        <member name="M:BZClass.RealWeight.doPOWERSum(System.String,System.String)">
+            <summary>
+            能量和(SUMPOWER)
+            </summary>
+            <param name="strag1"></param>
+            <param name="strag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.RealWeight.doPOWERSum(System.Data.DataTable)">
+            <summary>
+            能量和(SUMPOWER)
+            </summary>
+            <param name="celldata"></param>
+            <returns>异常返回 "-1000"</returns>
+        </member>
+        <member name="T:BZClass.O5Data">
+            <summary>
+            O5
+            </summary>
+        </member>
+        <member name="M:BZClass.O5Data.GetProjCode">
+            <summary>
+            获取品种名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetSpec(System.String)">
+            <summary>
+            获取参数规格
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetSpecPC">
+            <summary>
+            获取虚拟批次规格 
+            20181221
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetProjPara(System.String)">
+            <summary>
+            获取品种参数
+            20181221
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetPZPara(System.String)">
+            <summary>
+            获取配组参数
+            20181224
+            </summary>
+            <param name="strProjCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.IsRetest(System.String)">
+            <summary>
+            检查是否有复测marking,当前的复测Marking有"O3","C"
+            </summary>
+            <param name="strCellName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.CheckCondition(System.String,System.Data.DataTable,System.Data.DataTable,System.Data.DataTable,System.String@)">
+            <summary>
+            检查条码项目
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="dtProjPro">品种参数表</param>
+            <param name="dtSpec">参数规格</param>
+            <param name="dtSpecPC">参数批次规格</param>
+            <param name="strMessage">异常反馈信息</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetParaValue(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            获取分组数据值
+            </summary>
+            <param name="strProcName"></param>
+            <param name="strParaCode"></param>
+            <param name="dtcell"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetGroupName(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取组别
+            </summary>
+            <param name="strProjCode"></param>
+            <param name="strProcName"></param>
+            <param name="strParaCode"></param>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetGroupNo(System.String,System.Data.DataTable,System.Data.DataTable,System.Boolean)">
+            <summary>
+            电芯分组规则
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.CheckPZCondition(System.String,System.String,System.Data.DataTable,System.Data.DataTable,System.Data.DataTable,System.String@,System.String@)">
+            <summary>
+            检查配组及分组组号
+            20181224
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strPassFlag">O5、直流内阻合格标志(0,合格;1,大于上限;-1,小于下限)</param>
+            <param name="dtProjPro">型号流程参数</param>
+            <param name="dtSpec">型号参数规格</param>
+            <param name="dtGroupPara">分组参数</param>
+            <param name="strPZZB">返回组别</param>
+            <param name="strMessage">异常信息</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:BZClass.O5Data.CheckO1OBTime(System.Data.DataTable,System.Data.DataTable,System.String@,System.String@,System.String)">
+            <summary>
+            检查O1OB时间差
+            20171020
+            </summary>
+            <param name="data"></param>
+            <param name="spec"></param>
+            <param name="strspec"></param>
+            <param name="strsj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.CCDpara(System.String)">
+            <summary>
+            CCD根据参数获取对应的列名
+            </summary>
+            <param name="para"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.CheckAGTime(System.String,System.Data.DataTable)">
+            <summary>
+            PK  AGTIME
+            </summary>
+            <param name="agtime"></param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.CheckBarcodeAGO5Time(System.Data.DataTable,System.Data.DataTable,System.String@)">
+            <summary>
+            分选到O5测试时间 
+            add 20190525
+            </summary>
+            <param name="celldata"></param>
+            <param name="spec"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.getBarcodeTime(System.String)">
+            <summary>
+            十年前的条码在十年后出现就会有问题  
+            现在是15年，条码A01512400000
+            10年后25年，条码A01512400001
+            推算出的时间就不准了
+            </summary>
+            <param name="barcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.CheckBarcodeTime(System.String,System.String@,System.Data.DataTable)">
+            <summary>
+            PK BATIME
+            </summary>
+            <param name="barcode">条码</param>
+            <param name="time">条码时间</param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.SaveO5KData(System.String,System.String,System.String,System.String,System.Data.DataTable,System.Data.DataTable,System.String@)">
+            <summary>
+            计算O5 K值
+            20190218
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="strVOL">O5的电压</param>
+            <param name="strOperator">员工工号</param>
+            <param name="dtProjPro">品种参数表</param>
+            <param name="dtSpec">参数规格</param>
+            <param name="messsage">异常反馈信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.SaveCellInfo(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存O5数据
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="strVOL">O5的电压</param>
+            <param name="strIMP">电阻</param>
+            <param name="strPassFlag">合格状态(0,合格;1,大于上限;-1,小于下限)</param>
+            <param name="strOperator">员工工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.SaveZlnzData(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存直流内阻数据
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="DyFir">放电前电压</param>
+            <param name="DySec">放电后电压</param>
+            <param name="Dcir">直流内阻</param>
+            <param name="strOperator">员工工号</param>
+            <param name="PassFlag">合格状态(0,合格;1,大于上限;-1,小于下限)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.WeekOfYear(System.DateTime,System.String)">
+            <summary>
+            返回时间的年周次  星期日-星期六为一个周期
+            20190612
+            </summary>
+            <param name="dt"></param>
+            <param name="para">1表示zh-CN</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.O5Data.GetOracleSysdate">
+            <summary>
+            返回后台DB的时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.ClBarcode.Convert36To10(System.String)">
+            <summary>
+            36进制转10进制
+            20170117
+            </summary>
+            <param name="str36"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.ClBarcode.Convert10To36(System.Int32,System.String@)">
+            <summary>
+            最大十进制 46656
+            20170117
+            </summary>
+            <param name="number">十进制</param>
+            <param name="result">3位</param>
+        </member>
+        <member name="T:BZClass.JGHData">
+            <summary>
+            激光焊接
+            </summary>
+        </member>
+        <member name="M:BZClass.JGHData.GetProjCode">
+            <summary>
+            获取品种名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.JGHData.GetSpec(System.String)">
+            <summary>
+            获取参数规格
+            tco定位尺寸C:JG-TCOC
+            tco定位尺寸D:JG-TCOD
+            焊点位置A：JG-HDA
+            焊点位置B: JG-HDB
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.JGHData.GetMarking(System.String)">
+            <summary>
+            获取Marking列表
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.JGHData.GetProjCodeWLBM(System.String)">
+            <summary>
+            获取型号对应配置的物料编码
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns>比如DC....</returns>
+        </member>
+        <member name="M:BZClass.JGHData.GetBKRInfo(System.String)">
+            <summary>
+            获取Breaker的信息
+            </summary>
+            <param name="TM">外箱上的一维条码</param>
+            <returns>供应商_物料编码_物料批号</returns>
+        </member>
+        <member name="M:BZClass.JGHData.CheckCondition(System.String,System.String,System.Data.DataTable,System.String,System.String,System.String,System.String@,System.String)">
+            <summary>
+            检查条码项目
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="dtSpec">参数规格</param>
+            <param name="strProjCodeWLBM">品种型号配置的物料编码</param>
+            <param name="strProjCodeTMWLBM">根据条码获取的物料编码</param>
+            <param name="strBMDM">部门代码("6")</param>
+            <param name="strMessage">异常反馈信息</param>
+            <param name="strMarking">已选标记,使用逗号分隔</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:BZClass.JGHData.SaveCellInfoJGHBCData(System.String,System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            新增保存JGH补充数据  焊接频率，脉宽，焊接电流
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strDataValue1">焊接频率</param>      
+            <param name="strDataValue2">脉宽</param> 
+            <param name="strDataValue3">焊接电流</param>  
+            <param name="strOperator">员工工号</param>
+            <param name="strMessage">异常反馈信息</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:BZClass.JGHData.SaveCellInfoTCO(System.String,System.String,System.String,System.String)">
+            <summary>
+            保存JGH数据  tco定位尺寸C 、D
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strDataValue1">tco定位尺寸C</param>      
+            <param name="strDataValue2">tco定位尺寸D</param>     
+            <param name="strOperator">员工工号</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:BZClass.JGHData.SaveCellInfoTCO(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存JGH数据_新  tco定位尺寸C 、D
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strDataValue1">tco定位尺寸C</param>      
+            <param name="strDataValue2">tco定位尺寸D</param>     
+            <param name="strOperator">员工工号</param>
+            <param name="strPassFlag">0:合格;1:不合格</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:BZClass.JGHData.SaveCellInfo(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            保存JGH数据  除tco定位尺寸C 、D外
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strDataValue3">焊点位置A</param>
+            <param name="strDataValue4">焊点位置B</param>
+            <param name="strDataValue5">上焊点数量</param>
+            <param name="strDataValue6">下焊点数量</param>
+            <param name="strDataValue7">焊穿</param>
+            <param name="strPassFlag">0:合格;1:不合格</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:BZClass.JGHData.CheckXHD(System.String)">
+            <summary>
+            新增激光焊-下焊点数量 数据检重复
+            20190301
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <returns>true:存在下焊点数量;false:不存在</returns>
+        </member>
+        <member name="M:BZClass.JGHData.SaveCellInfoWLBM(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存物料编码信息
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种型号</param>
+            <param name="strWLBM">物料编码</param>
+            <param name="strGys">供应商</param>
+            <param name="strWLPH">物料批号</param>
+            <param name="TM">条码-外箱上的一维条码</param>
+            <param name="strOperator">员工工号</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.JGHData.SaveMarkingInfo(System.String,System.String)">
+            <summary>
+            5部让增加 改标记 20190424
+            </summary>
+            <param name="strCellName"></param>
+            <param name="strMarking"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BZClass.SQL1">
+            <summary>
+            连接SQL Server数据库操作
+            </summary>
+        </member>
+        <member name="F:BZClass.SQL1.db">
+            <summary>
+            连接对象
+            </summary>
+        </member>
+        <member name="M:BZClass.SQL1.SQLDML(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行DML
+            </summary>
+            <param name="sql"></param>
+            <param name="_conn"></param>
+            <returns>-1000执行出现异常</returns>
+        </member>
+        <member name="M:BZClass.SQL1.SQLTransf(System.Collections.Generic.List{System.String},System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行事务
+            </summary>
+            <param name="sqllist"></param>
+            <param name="_conn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.SQL1.PingIpOrName(System.String)">
+            <summary>
+            判断网络是否接通
+            </summary>
+            <param name="IpOrName">ip/name</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.MultiSpec.CheckCAP(System.Data.DataTable@,System.Data.DataTable,System.Int32@)">
+            <summary>
+            检查是否有容量，符合条件的没有就计算容量
+            56309-13656*冷压后电压
+            fLSL-fUSL*V1
+            201607227
+            </summary>
+            <param name="dtcell"></param>
+            <param name="spec"></param>
+        </member>
+        <member name="M:BZClass.MultiSpec.CheckMKFlagDesc(System.Int32)">
+            <summary>
+            flag 解释
+            </summary>
+            <param name="flag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.MultiSpec.CheckMK(System.Data.DataTable,System.Data.DataTable,System.String@,System.String@,System.String@,System.String@,System.String@,System.Int32@,System.String)">
+            <summary>
+            打包Check 多标准K1
+            flag含义：-3超时或者没设置多K1值(IC)参数规范；   -1无化成电压数据(测试V1)；   0无化成电压数据(采集VOL)；  1/-2 无容量数据； 2 无O1数据； 3 无K1数据；4 超时或者没设置多K1值(AC)参数规范；5 良品; 6 K1值小； 7 K1值大
+            20160719 dp
+            20170103 dp
+            </summary>
+            <param name="dtcell">电芯数据</param>
+            <param name="spec">电芯规范</param>
+            <param name="strLSL">下限</param>
+            <param name="strUSL">上限</param>
+            <param name="strTimeLSL">时间下限</param>
+            <param name="strTimeUSL">时间上限</param>
+            <param name="ago1span">时间间隔</param>
+            <param name="isflow">"Y"-化成时间/""-分选时间/"B"-半分选</param>
+            <param name="flag">flag 1000默认值；-3超时或者没设置多K1值(IC)参数规范；   -1无化成电压数据(测试V1)；   0无化成电压数据(采集VOL)；  1/-2 无容量数据； 2 无O1数据； 3 无K1数据；4 超时或者没设置多K1值(AC)参数规范；5 良品; 6 K1值小； 7 K1值大</param>
+        </member>
+        <member name="M:BZClass.MultiSpec.CheckMOCVSPEC(System.String)">
+            <summary>
+            检查多标准OCV参数 
+            20160725
+            </summary>
+            <param name="parameter">O1_VOL</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.MultiSpec.CheckMOCV(System.Data.DataTable,System.Data.DataTable,System.String@,System.String@,System.String@,System.String@,System.Int32@,System.String)">
+            <summary>
+            20160725
+            取规格 O1OB /O3OC
+            </summary>
+            <param name="dtcell"></param>
+            <param name="spec"></param>
+            <param name="strLSL"></param>
+            <param name="strUSL"></param>
+            <param name="strTimeLSL"></param>
+            <param name="strTimeUSL"></param>
+            <param name="flag"></param>
+            <param name="parameter">O1_VOL</param>
+        </member>
+        <member name="M:BZClass.MultiSpec.CheckMO5K(System.Data.DataTable,System.Data.DataTable,System.String@,System.String@,System.String@,System.String@,System.Int32@,System.String,System.String)">
+            <summary>
+            O5测试K值
+            20170120  20190219移植过来
+            </summary>
+            <param name="dtcell"></param>
+            <param name="spec"></param>
+            <param name="strLSL"></param>
+            <param name="strUSL"></param>
+            <param name="strTimeLSL"></param>
+            <param name="strTimeUSL"></param>
+            <param name="flag"></param>
+            <param name="iswd"></param>
+            <param name="isNewFlow"></param>
+        </member>
+        <!-- 对于成员“M:BZClass.MultiSpec.GetPassFlagO5K(System.String,System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="T:BZClass.CCDData">
+            <summary>
+            CCD
+            </summary>
+        </member>
+        <member name="M:BZClass.CCDData.GetProjCode">
+            <summary>
+            获取品种名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.GetSpec(System.String)">
+            <summary>
+            获取参数规格
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.IsRetest(System.String)">
+            <summary>
+            检查是否有复测marking,当前的复测Marking有"O3","C"
+            </summary>
+            <param name="strCellName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.CheckCondition(System.String,System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            检查条码项目
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="dtSpec">参数规格</param>
+            <param name="strMessage">异常反馈信息</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:BZClass.CCDData.CheckO1OBTime(System.Data.DataTable,System.Data.DataTable,System.String@,System.String@,System.String)">
+            <summary>
+            检查O1OB时间差
+            20171020
+            </summary>
+            <param name="data"></param>
+            <param name="spec"></param>
+            <param name="strspec"></param>
+            <param name="strsj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.CCDpara(System.String)">
+            <summary>
+            CCD根据参数获取对应的列名
+            </summary>
+            <param name="para"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.CheckAGTime(System.String,System.Data.DataTable)">
+            <summary>
+            PK  AGTIME
+            </summary>
+            <param name="agtime"></param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.getBarcodeTime(System.String)">
+            <summary>
+            十年前的条码在十年后出现就会有问题  
+            现在是15年，条码A01512400000
+            10年后25年，条码A01512400001
+            推算出的时间就不准了
+            </summary>
+            <param name="barcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.CheckBarcodeTime(System.String,System.String@,System.Data.DataTable)">
+            <summary>
+            PK BATIME
+            </summary>
+            <param name="barcode">条码</param>
+            <param name="time">条码时间</param>
+            <param name="spec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.CCDData.SaveCellInfo(System.String,System.String,System.Data.DataTable,System.String[],System.String,System.String@)">
+            <summary>
+            保存CCD数据
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="dtSpec">参数规格</param>
+            <param name="strDataValue">CCD数组13项,顺序及格式:本体长度,本体宽度,耳1总长,耳2总长,耳1边距,耳2边距,耳中心距,耳1宽度,耳2宽度,耳1长度,耳2长度,绝缘胶1,绝缘胶2</param>        
+            <param name="strPassFlag">合格状态(0,合格;1,大于上限;-1,小于下限)</param>
+            <param name="strOperator">员工工号</param>
+            <param name="strMessage">异常信息</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="T:BZClass.ORACLEQGX">
+            <summary>
+            连接Oracle数据库操作
+            </summary>
+        </member>
+        <member name="T:BZClass.SQL">
+            <summary>
+            连接SQL Server数据库操作
+            </summary>
+        </member>
+        <member name="F:BZClass.SQL.db">
+            <summary>
+            连接对象
+            </summary>
+        </member>
+        <member name="M:BZClass.SQL.SQLDML(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行DML
+            </summary>
+            <param name="sql"></param>
+            <param name="_conn"></param>
+            <returns>-1000执行出现异常</returns>
+        </member>
+        <member name="M:BZClass.SQL.SQLTransf(System.Collections.Generic.List{System.String},System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行事务
+            </summary>
+            <param name="sqllist"></param>
+            <param name="_conn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.SQL.PingIpOrName(System.String)">
+            <summary>
+            判断网络是否接通
+            </summary>
+            <param name="IpOrName">ip/name</param>
+            <returns></returns>
+        </member>
+        <member name="T:BZClass.PKSLJ">
+            <summary>
+            包装上料机工位
+            </summary>
+        </member>
+        <member name="M:BZClass.PKSLJ.GetProjCode">
+            <summary>
+            获取品种名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKSLJ.GetLineNameList">
+            <summary>
+            获取包装线体信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKSLJ.GetPkFloorList">
+            <summary>
+            获取包装楼层信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BZClass.PKSLJ.CheckTrayCodeState(System.String,System.String,System.String,System.String@,System.String@)">
+            <summary>
+            包装上料机检查上料托盘是否符合条件
+            </summary>
+            <param name="traycode">托盘条码(in)</param>
+            <param name="linename">线体名称(in)</param>
+            <param name="floor">线体所在楼层(in)</param>
+            <param name="projcode">此线体应该生产的产品型号(out)</param>
+            <param name="msg">异常信息(out)</param>
+            <returns>返回true代表检查通过，projcode为此线体应生产产品型号，msg为空；返回false时代表检查无法通过，projcode为空，msg异常信息</returns>
+        </member>
+        <member name="M:BZClass.PKSLJ.TrayBarCodeUntying(System.String,System.String@)">
+            <summary>
+            包装上料机调用MES接口，通知MES解绑托盘与电芯的关系
+            </summary>
+            <param name="traycode">托盘条码(in)</param>
+            <param name="msg">异常信息(out)</param>
+            <returns>返回true代表解绑成功，msg为空；返回false时代表解绑失败，msg异常信息</returns>
+        </member>
+    </members>
+</doc>

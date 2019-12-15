@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CQUpdate</name>
+    </assembly>
+    <members>
+        <member name="M:CQInterFace.CQUpdate.UpdateDLL(System.String)">
+            <summary>
+            检查dll,是否最新版本
+            </summary>
+            <param name="test_type">FZ</param>
+            <returns>Fail;Success</returns>
+        </member>
+        <member name="T:CQInterFace.SQL">
+            <summary>
+            连接SQL Server数据库操作
+            </summary>
+        </member>
+        <member name="F:CQInterFace.SQL.db">
+            <summary>
+            连接对象
+            </summary>
+        </member>
+        <member name="M:CQInterFace.SQL.SQLDML(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行DML
+            </summary>
+            <param name="sql"></param>
+            <param name="_conn"></param>
+            <returns>-1000执行出现异常</returns>
+        </member>
+        <member name="M:CQInterFace.SQL.SQLTransf(System.Collections.Generic.List{System.String},System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行事务
+            </summary>
+            <param name="sqllist"></param>
+            <param name="_conn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CQInterFace.SQL.PingIpOrName(System.String)">
+            <summary>
+            判断网络是否接通
+            </summary>
+            <param name="IpOrName">ip/name</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CardClassLib</name>
+    </assembly>
+    <members>
+        <member name="T:CardClassLib.CardClass1">
+            <summary>
+            接口
+            </summary>
+        </member>
+        <member name="M:CardClassLib.CardClass1.MachineInfo(System.String)">
+            <summary>
+            设备开机历史
+            </summary>
+            <param name="strData">开机标志,设备编号,员工工号</param>
+            <returns>0:录入成功  1:录入失败</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.CardCheck(System.String,System.String)">
+            <summary>
+            IC卡开机验证  封装 注液 
+            </summary>
+            <param name="strMachineNo">设备编号</param>
+            <param name="strCardID">IC卡卡号</param>
+            <returns>0,Success,员工工号 || 1,错误信息,员工工号 </returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.CardCheck(System.String,System.String,System.String)">
+            <summary>
+            IC卡开机验证  化成 二封 OCV 分选
+            </summary>
+            <param name="strMachineNo">设备编号</param>
+            <param name="strCardID">IC卡卡号</param>
+            <param name="strProcName">HC/EF/OCV/AG</param>
+            <returns>0,Success,员工工号,刷卡时间 || 1,错误信息,员工工号,刷卡时间</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.GetModel(System.String)">
+            <summary>
+            获取注液设备品种名称
+            </summary>
+            <param name="sbbm">注液设备编号</param>
+            <returns>数组</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.GetModelDJ(System.String)">
+            <summary>
+            获取点胶设备品种名称
+            </summary>
+            <param name="sbbm">点胶设备编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.GetModelEF(System.String)">
+            <summary>
+            获取二封设备品种名称
+            </summary>
+            <param name="sbbm">二封设备编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.GetSpec(System.String)">
+            <summary>
+            获取品种名称对应参数规格
+            </summary>
+            <param name="strProjCode">品种名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.CheckCondition(System.String)">
+            <summary>
+            条码验证
+            </summary>
+            <param name="strCellName"></param>
+            <returns>条码正确返回Success;错误就返回条码不正确，或者条码长度不等于12</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.CheckCell(System.String)">
+            <summary>
+            电芯检查
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <returns>标志位,说明(0,Success||1,注液说明||2,陈化说明||3,化成说明||4,其他)</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.GetICCount(System.String,System.Int32@)">
+            <summary>
+            返回3次及以上的datatable
+            </summary>
+            <param name="strCellName"></param>
+            <param name="imax"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.GetInfo(System.String)">
+            <summary>
+            胶水批次信息获取
+            </summary>
+            <param name="strBarCode">胶水批次条码</param>
+            <returns>0,物料编号,物料名称,物料批号,开始使用时间;1,错误信提示息</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.ElectCheck(System.String,System.String,System.String,System.String)">
+            <summary>
+            物料编号验证
+            </summary>
+            <param name="strWLBH">物料编号</param>
+            <param name="strProjCode">品种名称</param>
+            <param name="strStartTime">胶水开始使用时间</param>
+            <param name="strFX">左或右</param>
+            <returns>0,验证成功;1,错误信提示息</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.SaveCellInfo(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            点胶数据上传
+            </summary>
+            <param name="strCellName">电芯条码</param>
+            <param name="strDataValue">左胶水条码</param>
+            <param name="strDataValue2">右胶水条码</param>
+            <param name="strPassFlag">合格状态</param>
+            <param name="strDateTime">点胶时间</param>
+            <param name="strOperator">操作员</param>
+            <param name="strMachineNo">设备编号</param>
+            <param name="strProjCode">电芯型号</param>
+            <param name="strWLBH">左胶水料号</param>
+            <param name="strWLPH">左胶水批号</param>
+            <param name="StartTime">左胶水开始使用时间</param>
+            <param name="strWLBH2">右胶水料号</param>
+            <param name="strWLPH2">右胶水批号</param>
+            <param name="StartTime2">右胶水开始使用时间</param>
+            <returns>状态,说明（0,上传成功;1,前道工序不良;2,保存失败;除0以外的状态需将说明显示在窗体上）</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.SaveIC2BYData(System.Data.DataTable,System.String@)">
+            <summary>
+            二化保压数据保存
+            </summary>
+            <param name="data">二化保压数据：传入参数，DataTable类型，字段顺序为电芯条码、保压温度、保压压力、保压时间,表头字段依次为：code,w,y,s</param>
+            <param name="strMessage">异常返馈信息：当返回值为false，返回保存数据失败的原因</param>
+            <returns>保存成功返回true;保存失败返回false,</returns>
+        </member>
+        <member name="M:CardClassLib.CardClass1.SaveIC2LYData(System.Data.DataTable,System.String@)">
+            <summary>
+            二化冷压数据保存
+            </summary>
+            <param name="data">二化冷压数据：传入参数，DataTable类型，字段顺序为电芯条码、冷压温度、冷压压力、冷压时间,表头字段依次为：code,w,y,s</param>
+            <param name="strMessage">异常返馈信息：当返回值为false，返回保存数据失败的原因</param>
+            <returns>保存成功返回true;保存失败返回false,</returns>
+        </member>
+        <member name="T:CardClassLib.ORACLEQGX">
+            <summary>
+            连接Oracle数据库操作
+            </summary>
+        </member>
+        <member name="T:CardClassLib.SQL">
+            <summary>
+            连接SQL Server数据库操作
+            </summary>
+        </member>
+        <member name="F:CardClassLib.SQL.db">
+            <summary>
+            连接对象
+            </summary>
+        </member>
+        <member name="M:CardClassLib.SQL.SQLDML(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行DML
+            </summary>
+            <param name="sql"></param>
+            <param name="_conn"></param>
+            <returns>-1000执行出现异常</returns>
+        </member>
+        <member name="M:CardClassLib.SQL.SQLTransf(System.Collections.Generic.List{System.String},System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行事务
+            </summary>
+            <param name="sqllist"></param>
+            <param name="_conn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CardClassLib.SQL.PingIpOrName(System.String)">
+            <summary>
+            判断网络是否接通
+            </summary>
+            <param name="IpOrName">ip/name</param>
+            <returns></returns>
+        </member>
+        <member name="M:BMES.Model.DispensingInfo.SaveInfo2">
+            <summary>
+            适用日期格式为年月日 时分秒格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BMES.Model.DispensingInfo.UpdateInfo2">
+            <summary>
+            适用日期格式为年月日 时分秒格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BMES.Model.DispensingInfo.InsertInfo2">
+            <summary>
+            适用日期格式为年月日 时分秒格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CardClassLib.ORACLE">
+            <summary>
+            连接Oracle数据库操作
+            </summary>
+        </member>
+        <member name="T:CardClassLib.SQL1">
+            <summary>
+            连接SQL Server数据库操作
+            </summary>
+        </member>
+        <member name="F:CardClassLib.SQL1.db">
+            <summary>
+            连接对象
+            </summary>
+        </member>
+        <member name="M:CardClassLib.SQL1.SQLDML(System.String,System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行DML
+            </summary>
+            <param name="sql"></param>
+            <param name="_conn"></param>
+            <returns>-1000执行出现异常</returns>
+        </member>
+        <member name="M:CardClassLib.SQL1.SQLTransf(System.Collections.Generic.List{System.String},System.Data.SqlClient.SqlConnection)">
+            <summary>
+            执行事务
+            </summary>
+            <param name="sqllist"></param>
+            <param name="_conn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CardClassLib.SQL1.PingIpOrName(System.String)">
+            <summary>
+            判断网络是否接通
+            </summary>
+            <param name="IpOrName">ip/name</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

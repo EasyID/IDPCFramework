@@ -1,0 +1,8 @@
+1 在启动你窗体前，调用CQUpdate.dll，方法UpdateDLL，参数传值BZ，作用是获取最新dll接口文件。
+2 刷卡开机，调用CardClassLib.dll, 
+    2.1 方法CardCheck方法验证，参数机器编号，员工工号；
+    2.2 验证通过之后调用方法MachineInfo写一条记录，最后关闭软件也调用这个方法写一条记录。（开机标志，0：开机，1：关机）
+3 BZClass.dll里面有个PKSLJ类
+    3.1 GetProjCode 获取品种型号，此方法建议产商软件UI上下拉出产品型号，让作业员选择一个要生产的产品型号，再与调用MES的CheckTrayCodeState 返回的可以生产的型号比对，这样可以做一个双重防呆。
+    3.2 CheckTrayCodeState 检查托盘能否在此线生产
+    3.3 TrayBarCodeUntying 解绑托盘与电芯绑定关系，调用此方法时机要把握好，调用后会解绑掉托盘与电芯关系。
